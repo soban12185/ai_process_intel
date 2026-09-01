@@ -1,0 +1,842 @@
+[
+  {
+    "name": "Customer Onboarding - Retail",
+    "description": "End-to-end process for onboarding new retail banking customers, including identity verification, account opening, KYC documentation, and welcome communications.",
+    "business_purpose": "Register new retail customers, verify their identity, and establish banking relationships.",
+    "business_function": "Customer Onboarding",
+    "activities": ["Receive application", "Verify identity", "Collect KYC documents", "Run AML screening", "Open accounts", "Issue welcome kit", "Set up digital access"]
+  },
+  {
+    "name": "Customer Onboarding - Corporate",
+    "description": "Process for onboarding corporate and institutional clients, including entity verification, beneficial ownership, and complex account structures.",
+    "business_purpose": "Establish banking relationships with corporate clients while meeting regulatory requirements.",
+    "business_function": "Customer Onboarding",
+    "activities": ["Receive corporate application", "Verify entity registration", "Identify beneficial owners", "Conduct enhanced due diligence", "Open corporate accounts", "Set up treasury access", "Assign relationship manager"]
+  },
+  {
+    "name": "KYC Document Collection",
+    "description": "Systematic collection, verification, and storage of Know Your Customer documents for regulatory compliance.",
+    "business_purpose": "Ensure customer identity verification meets regulatory KYC requirements.",
+    "business_function": "KYC",
+    "activities": ["Request documents from customer", "Receive and catalog documents", "Verify document authenticity", "Extract key information", "Store in secure repository", "Flag incomplete submissions"]
+  },
+  {
+    "name": "KYC Periodic Review",
+    "description": "Scheduled review and refresh of customer KYC information to maintain compliance with ongoing monitoring requirements.",
+    "business_purpose": "Keep customer records current and compliant with regulatory mandates.",
+    "business_function": "KYC",
+    "activities": ["Identify customers due for review", "Request updated documents", "Verify current information", "Update risk ratings", "Document review outcomes", "Escalate overdue reviews"]
+  },
+  {
+    "name": "AML Transaction Monitoring",
+    "description": "Continuous monitoring of customer transactions for suspicious activity patterns indicative of money laundering.",
+    "business_purpose": "Detect and report potentially suspicious transactions as required by anti-money laundering regulations.",
+    "business_function": "AML",
+    "activities": ["Monitor transaction patterns", "Apply detection rules", "Generate alerts", "Investigate flagged transactions", "File suspicious activity reports", "Escalate to compliance"]
+  },
+  {
+    "name": "Suspicious Activity Reporting",
+    "description": "Preparation and filing of Suspicious Activity Reports (SARs) to relevant financial intelligence units.",
+    "business_purpose": "Fulfill regulatory obligation to report suspicious financial activity.",
+    "business_function": "AML",
+    "activities": ["Investigate alert", "Gather supporting evidence", "Document findings", "Prepare SAR narrative", "File with FIU", "Maintain SAR records", "Conduct follow-up monitoring"]
+  },
+  {
+    "name": "Sanctions Screening",
+    "description": "Screening customers and transactions against global sanctions lists and watchlists.",
+    "business_purpose": "Prevent business with sanctioned entities and comply with international sanctions regulations.",
+    "business_function": "Compliance",
+    "activities": ["Load sanctions lists", "Screen new customers", "Screen transactions", "Investigate matches", "File false positive reports", "Escalate true matches", "Block prohibited transactions"]
+  },
+  {
+    "name": "Fraud Detection - Transaction",
+    "description": "Real-time monitoring and detection of fraudulent transactions across all banking channels.",
+    "business_purpose": "Protect customers and the bank from financial losses due to fraud.",
+    "business_function": "Fraud",
+    "activities": ["Monitor transactions in real-time", "Apply fraud detection rules", "Score transactions", "Generate fraud alerts", "Investigate suspicious activity", "Block fraudulent transactions", "Notify customers"]
+  },
+  {
+    "name": "Fraud Detection - Account Takeover",
+    "description": "Detection and prevention of unauthorized access to customer accounts through compromised credentials.",
+    "business_purpose": "Protect customer accounts from unauthorized access and financial theft.",
+    "business_function": "Fraud",
+    "activities": ["Monitor login patterns", "Detect anomalous access", "Verify device fingerprints", "Challenge suspicious logins", "Lock compromised accounts", "Facilitate credential reset", "Investigate root cause"]
+  },
+  {
+    "name": "Fraud Investigation",
+    "description": "Systematic investigation of confirmed or suspected fraud cases, including evidence gathering and resolution.",
+    "business_purpose": "Investigate fraud incidents, recover losses, and support legal proceedings.",
+    "business_function": "Fraud",
+    "activities": ["Open investigation case", "Collect evidence", "Interview affected parties", "Analyze transaction history", "Prepare investigation report", "Coordinate with law enforcement", "Process restitution"]
+  },
+  {
+    "name": "Credit Card Application Processing",
+    "description": "Processing of new credit card applications from application receipt through approval and card issuance.",
+    "business_purpose": "Evaluate and approve credit card applications while managing credit risk.",
+    "business_function": "Cards",
+    "activities": ["Receive application", "Verify information", "Run credit check", "Assess creditworthiness", "Make approval decision", "Set credit limit", "Issue card", "Send welcome materials"]
+  },
+  {
+    "name": "Credit Card Dispute Resolution",
+    "description": "Handling of customer disputes regarding credit card transactions, chargebacks, and billing errors.",
+    "business_purpose": "Resolve customer disputes fairly while complying with card network regulations.",
+    "business_function": "Cards",
+    "activities": ["Receive dispute claim", "Investigate transaction", "Contact merchant", "Apply provisional credit", "Make determination", "Process chargeback or reversal", "Notify customer of outcome"]
+  },
+  {
+    "name": "Debit Card Issuance",
+    "description": "Process for issuing new debit cards to customers, including personalization and delivery.",
+    "business_purpose": "Provide customers with payment cards linked to their deposit accounts.",
+    "business_function": "Cards",
+    "activities": ["Receive card request", "Verify account status", "Select card type", "Personalize card", "Activate card", "Set PIN", "Mail to customer", "Confirm delivery"]
+  },
+  {
+    "name": "Loan Application Processing",
+    "description": "End-to-end processing of personal and commercial loan applications from intake to decision.",
+    "business_purpose": "Evaluate loan requests and make credit decisions efficiently.",
+    "business_function": "Lending",
+    "activities": ["Receive loan application", "Collect required documents", "Verify employment and income", "Run credit check", "Assess collateral", "Make credit decision", "Communicate decision", "Prepare loan agreement"]
+  },
+  {
+    "name": "Mortgage Application Processing",
+    "description": "Specialized processing pipeline for residential mortgage applications including underwriting and closing.",
+    "business_purpose": "Process mortgage applications from application through closing.",
+    "business_function": "Mortgage",
+    "activities": ["Receive mortgage application", "Collect financial documents", "Order appraisal", "Verify income and assets", "Underwrite loan", "Clear conditions", "Prepare closing documents", "Fund loan"]
+  },
+  {
+    "name": "Mortgage Underwriting",
+    "description": "Detailed assessment of mortgage applications to determine creditworthiness and compliance with lending guidelines.",
+    "business_purpose": "Make sound mortgage lending decisions based on thorough risk assessment.",
+    "business_function": "Mortgage",
+    "activities": ["Review application package", "Analyze credit history", "Evaluate debt-to-income ratio", "Review appraisal", "Assess property risks", "Apply lending guidelines", "Issue conditional approval", "Clear conditions"]
+  },
+  {
+    "name": "Commercial Loan Underwriting",
+    "description": "Assessment of commercial loan requests including financial analysis, risk rating, and credit decisioning.",
+    "business_purpose": "Evaluate commercial credit requests and manage lending risk.",
+    "business_function": "Lending",
+    "activities": ["Receive credit request", "Analyze financial statements", "Assess business model", "Evaluate collateral", "Assign risk rating", "Prepare credit memo", "Present to credit committee", "Issue decision"]
+  },
+  {
+    "name": "Credit Scoring",
+    "description": "Automated and manual assessment of customer creditworthiness using scoring models and analyst judgment.",
+    "business_purpose": "Provide consistent and accurate credit risk assessments for lending decisions.",
+    "business_function": "Credit",
+    "activities": ["Pull credit bureau data", "Run scoring models", "Analyze payment history", "Assess debt levels", "Consider contextual factors", "Assign credit score", "Document rationale"]
+  },
+  {
+    "name": "Collections - Early Stage",
+    "description": "Proactive outreach to customers with recently missed payments to prevent delinquency escalation.",
+    "business_purpose": "Recover overdue payments while maintaining customer relationships.",
+    "business_function": "Collections",
+    "activities": ["Identify missed payments", "Send automated reminders", "Make courtesy calls", "Offer payment options", "Document customer response", "Escalate if unresponsive", "Update account status"]
+  },
+  {
+    "name": "Collections - Late Stage",
+    "description": "Intensive collection activities for severely delinquent accounts including legal proceedings.",
+    "business_purpose": "Recover debts from seriously delinquent borrowers.",
+    "business_function": "Collections",
+    "activities": ["Issue formal demand letters", "Negotiate settlement terms", "Initiate legal proceedings", "Coordinate with collection agencies", "Process charge-offs", "Manage recovery efforts", "Write off unrecoverable debt"]
+  },
+  {
+    "name": "Payment Processing - Wire",
+    "description": "Processing of domestic and international wire transfer payments through SWIFT and Fedwire systems.",
+    "business_purpose": "Execute secure and timely wire transfers for customers.",
+    "business_function": "Payments",
+    "activities": ["Receive wire request", "Verify authorization", "Screen for sanctions", "Format SWIFT message", "Process payment", "Confirm settlement", "Notify sender and receiver"]
+  },
+  {
+    "name": "Payment Processing - ACH",
+    "description": "Processing of Automated Clearing House payments including direct deposits, bill payments, and transfers.",
+    "business_purpose": "Process batch electronic payments efficiently and accurately.",
+    "business_function": "Payments",
+    "activities": ["Receive ACH file", "Validate entries", "Screen transactions", "Post to accounts", "Return rejects", "Handle reversals", "Settle with ACH network"]
+  },
+  {
+    "name": "Payment Processing - Real-Time",
+    "description": "Processing of instant/real-time payment transactions with immediate settlement.",
+    "business_purpose": "Enable immediate fund transfers for time-sensitive payments.",
+    "business_function": "Payments",
+    "activities": ["Receive real-time payment", "Validate in real-time", "Check available balance", "Debit sender account", "Credit receiver account", "Confirm settlement", "Send notifications"]
+  },
+  {
+    "name": "Check Processing",
+    "description": "End-to-end processing of paper checks including image capture, clearing, and settlement.",
+    "business_purpose": "Process check deposits and payments accurately through the clearing system.",
+    "business_function": "Payments",
+    "activities": ["Receive check deposit", "Capture check image", "Perform MICR read", "Validate check details", "Submit for clearing", "Post to account", "Handle exceptions"]
+  },
+  {
+    "name": "Foreign Exchange Processing",
+    "description": "Execution and settlement of foreign currency exchange transactions for customers.",
+    "business_purpose": "Facilitate international payments and currency conversion.",
+    "business_function": "Treasury",
+    "activities": ["Receive FX request", "Quote exchange rate", "Execute trade", "Confirm details", "Settle currencies", "Book accounting entries", "Send confirmations"]
+  },
+  {
+    "name": "Cash Management",
+    "description": "Management of physical cash inventory across branches and ATMs to optimize liquidity.",
+    "business_purpose": "Ensure adequate cash availability while minimizing idle cash.",
+    "business_function": "Treasury",
+    "activities": ["Forecast cash demand", "Monitor branch cash levels", "Arrange cash deliveries", "Process cash deposits", "Reconcile cash counts", "Manage armored transport", "Report cash positions"]
+  },
+  {
+    "name": "ATM Fleet Management",
+    "description": "Management of ATM network including cash replenishment, maintenance, and monitoring.",
+    "business_purpose": "Maintain reliable ATM network for customer self-service.",
+    "business_function": "Operations",
+    "activities": ["Monitor ATM status", "Replenish cash cassettes", "Perform preventive maintenance", "Handle breakdowns", "Processjournal reconciliation", "Update software", "Manage card reader issues"]
+  },
+  {
+    "name": "Branch Operations - Daily Opening",
+    "description": "Standardized procedures for opening bank branches each business day.",
+    "business_purpose": "Ensure branches open on time with proper controls and readiness.",
+    "business_function": "Operations",
+    "activities": ["Verify vault balance", "Activate security systems", "Open teller stations", "Balance opening positions", "Confirm system readiness", "Brief staff on priorities", "Open to customers"]
+  },
+  {
+    "name": "Branch Operations - Daily Closing",
+    "description": "End-of-day procedures including reconciliation, balancing, and security protocols.",
+    "business_purpose": "Securely close branch operations with accurate daily reconciliation.",
+    "business_function": "Operations",
+    "activities": ["Balance teller drawers", "Reconcile cash and transactions", "Prepare daily reports", "Secure vault", "Lock down systems", "Set alarm systems", "Complete closing checklist"]
+  },
+  {
+    "name": "Teller Transaction Processing",
+    "description": "Processing of customer transactions at bank teller windows including deposits, withdrawals, and transfers.",
+    "business_purpose": "Serve customers efficiently and accurately at branch locations.",
+    "business_function": "Operations",
+    "activities": ["Greet customer", "Identify customer", "Process transaction", "Verify signatures", "Issue receipts", "Upsell products", "Maintain cash drawer"]
+  },
+  {
+    "name": "Safe Deposit Box Operations",
+    "description": "Management of safe deposit box rentals, access, and maintenance.",
+    "business_purpose": "Provide secure storage services for customer valuables.",
+    "business_function": "Operations",
+    "activities": ["Process rental agreements", "Issue box keys", "Facilitate access visits", "Handle lost key procedures", "Manage vacated boxes", "Maintain access logs", "Conduct periodic audits"]
+  },
+  {
+    "name": "Employee Onboarding",
+    "description": "Process for integrating new employees into the organization including training, compliance, and systems access.",
+    "business_purpose": "Effectively onboard new hires to ensure productivity and compliance.",
+    "business_function": "HR",
+    "activities": ["Prepare employment paperwork", "Conduct background checks", "Set up systems access", "Assign training modules", "Introduce to team", "Set 90-day goals", "Schedule check-ins"]
+  },
+  {
+    "name": "Payroll Processing",
+    "description": "Monthly processing of employee payroll including salary calculations, deductions, and payments.",
+    "business_purpose": "Accurately compensate employees while maintaining compliance with tax regulations.",
+    "business_function": "HR",
+    "activities": ["Collect time and attendance", "Calculate gross pay", "Apply deductions", "Calculate net pay", "Process payments", "Generate pay stubs", "File tax reports"]
+  },
+  {
+    "name": "Performance Management",
+    "description": "Annual and quarterly performance review cycles for employee evaluation and development.",
+    "business_purpose": "Evaluate employee performance and align with organizational goals.",
+    "business_function": "HR",
+    "activities": ["Set performance goals", "Conduct mid-year reviews", "Gather peer feedback", "Complete self-assessments", "Hold review meetings", "Document outcomes", "Plan development activities"]
+  },
+  {
+    "name": "Procurement - IT Hardware",
+    "description": "End-to-end procurement process for IT hardware including servers, networking equipment, and end-user devices.",
+    "business_purpose": "Acquire IT infrastructure efficiently and cost-effectively.",
+    "business_function": "Procurement",
+    "activities": ["Identify hardware needs", "Submit purchase request", "Obtain vendor quotes", "Evaluate proposals", "Negotiate contracts", "Place purchase orders", "Receive and asset-tag equipment", "Deploy to users"]
+  },
+  {
+    "name": "Vendor Management",
+    "description": "Ongoing management of vendor relationships including performance monitoring and contract compliance.",
+    "business_purpose": "Optimize vendor relationships and ensure contract compliance.",
+    "business_function": "Procurement",
+    "activities": ["Maintain vendor database", "Monitor SLA compliance", "Conduct performance reviews", "Manage contract renewals", "Resolve disputes", "Assess risk", "Negotiate terms"]
+  },
+  {
+    "name": "IT Incident Management",
+    "description": "Process for managing IT service disruptions from detection through resolution and post-incident review.",
+    "business_purpose": "Restore IT services quickly and minimize business impact.",
+    "business_function": "IT",
+    "activities": ["Detect incident", "Classify severity", "Assign to support team", "Diagnose root cause", "Implement workaround", "Resolve incident", "Conduct post-mortem", "Update knowledge base"]
+  },
+  {
+    "name": "IT Change Management",
+    "description": "Controlled process for implementing changes to IT systems and infrastructure.",
+    "business_purpose": "Implement changes safely while minimizing service disruption.",
+    "business_function": "IT",
+    "activities": ["Submit change request", "Assess impact", "Obtain approval", "Schedule change window", "Implement change", "Test results", "Rollback if needed", "Document outcome"]
+  },
+  {
+    "name": "Cybersecurity - Threat Monitoring",
+    "description": "Continuous monitoring of IT infrastructure for cybersecurity threats and vulnerabilities.",
+    "business_purpose": "Detect and respond to cyber threats before they cause damage.",
+    "business_function": "Cybersecurity",
+    "activities": ["Monitor SIEM alerts", "Analyze threat intelligence", "Investigate anomalies", "Correlate security events", "Escalate confirmed threats", "Update detection rules", "Report to management"]
+  },
+  {
+    "name": "Cybersecurity - Incident Response",
+    "description": "Structured response to confirmed cybersecurity incidents including containment, eradication, and recovery.",
+    "business_purpose": "Minimize damage from cyber incidents and restore normal operations.",
+    "business_function": "Cybersecurity",
+    "activities": ["Activate incident response plan", "Contain threat", "Eradicate malware", "Recover systems", "Notify stakeholders", "Conduct forensic analysis", "Implement preventive measures"]
+  },
+  {
+    "name": "Data Backup and Recovery",
+    "description": "Regular backup of critical business data and testing of recovery procedures.",
+    "business_purpose": "Ensure business continuity through reliable data protection.",
+    "business_function": "Data Management",
+    "activities": ["Schedule backup jobs", "Monitor backup completion", "Verify backup integrity", "Store offsite copies", "Test restore procedures", "Update recovery documentation", "Report backup status"]
+  },
+  {
+    "name": "Data Quality Management",
+    "description": "Ongoing processes to ensure accuracy, completeness, and consistency of business data.",
+    "business_purpose": "Maintain high data quality for reliable business operations and reporting.",
+    "business_function": "Data Management",
+    "activities": ["Define data quality rules", "Profile data regularly", "Identify quality issues", "Cleanse data", "Validate corrections", "Monitor ongoing quality", "Report to data owners"]
+  },
+  {
+    "name": "Regulatory Reporting",
+    "description": "Preparation and submission of regulatory reports to banking supervisors and regulators.",
+    "business_purpose": "Meet mandatory regulatory reporting obligations accurately and on time.",
+    "business_function": "Compliance",
+    "activities": ["Collect required data", "Apply regulatory templates", "Validate report accuracy", "Obtain management approval", "Submit to regulator", "Maintain filing records", "Respond to regulator queries"]
+  },
+  {
+    "name": "Internal Audit",
+    "description": "Systematic examination of business operations to assess internal controls and compliance.",
+    "business_purpose": "Provide independent assurance on operational effectiveness and compliance.",
+    "business_function": "Compliance",
+    "activities": ["Develop audit plan", "Conduct risk assessment", "Perform fieldwork", "Document findings", "Issue audit report", "Track remediation", "Follow up on issues"]
+  },
+  {
+    "name": "Financial Close - Monthly",
+    "description": "Monthly accounting close process including journal entries, reconciliations, and financial reporting.",
+    "business_purpose": "Produce accurate monthly financial statements on time.",
+    "business_function": "Finance",
+    "activities": ["Close sub-ledgers", "Post journal entries", "Reconcile accounts", "Perform variance analysis", "Prepare management reports", "Review financial statements", "Archive records"]
+  },
+  {
+    "name": "Financial Close - Quarterly",
+    "description": "Quarterly financial close including enhanced reconciliations, disclosures, and board reporting.",
+    "business_purpose": "Produce quarterly financial reports for external and internal stakeholders.",
+    "business_function": "Finance",
+    "activities": ["Complete monthly close procedures", "Prepare quarterly adjustments", "Draft financial disclosures", "Prepare board package", "Review for accuracy", "Obtain sign-off", "File regulatory reports"]
+  },
+  {
+    "name": "Accounts Payable Processing",
+    "description": "Processing of vendor invoices from receipt through payment.",
+    "business_purpose": "Pay vendors accurately and on time while maintaining controls.",
+    "business_function": "Finance",
+    "activities": ["Receive invoice", "Verify against purchase order", "Code for accounting", "Obtain approvals", "Schedule payment", "Process payment", "Record in GL"]
+  },
+  {
+    "name": "Accounts Receivable Management",
+    "description": "Management of incoming payments, invoicing, and receivables reconciliation.",
+    "business_purpose": "Ensure timely collection of amounts owed to the bank.",
+    "business_function": "Finance",
+    "activities": ["Generate invoices", "Send to customers", "Apply payments", "Reconcile accounts", "Follow up on aging", "Escalate overdue accounts", "Provision for bad debts"]
+  },
+  {
+    "name": "Treasury - Liquidity Management",
+    "description": "Monitoring and managing bank liquidity position to meet obligations and regulatory requirements.",
+    "business_purpose": "Maintain adequate liquidity while optimizing returns.",
+    "business_function": "Treasury",
+    "activities": ["Monitor cash positions", "Forecast liquidity needs", "Invest excess funds", "Borrow to meet shortfalls", "Manage collateral", "Report to ALCO", "Ensure regulatory compliance"]
+  },
+  {
+    "name": "Treasury - ALM (Asset-Liability Management)",
+    "description": "Management of interest rate risk and balance sheet composition.",
+    "business_purpose": "Optimize net interest margin while managing risk.",
+    "business_function": "Treasury",
+    "activities": ["Model interest rate scenarios", "Measure gap positions", "Hedge risk exposures", "Report to ALCO", "Adjust balance sheet mix", "Monitor NII impact", "Stress test portfolios"]
+  },
+  {
+    "name": "Risk Assessment - Credit",
+    "description": "Portfolio-level credit risk assessment including concentration analysis and impairment modeling.",
+    "business_purpose": "Monitor and manage credit risk across the lending portfolio.",
+    "business_function": "Risk",
+    "activities": ["Analyze portfolio composition", "Assess credit concentrations", "Model expected loss", "Calculate provisions", "Monitor watchlist loans", "Report to risk committee", "Recommend risk limits"]
+  },
+  {
+    "name": "Risk Assessment - Market",
+    "description": "Assessment of market risk exposures across trading and banking book positions.",
+    "business_purpose": "Identify and manage market risk within approved limits.",
+    "business_function": "Risk",
+    "activities": ["Calculate VaR", "Perform stress testing", "Monitor positions against limits", "Analyze P&L attribution", "Report to market risk committee", "Adjust risk limits", "Review hedging strategies"]
+  },
+  {
+    "name": "Risk Assessment - Operational",
+    "description": "Assessment and management of operational risks including process failures, system outages, and human error.",
+    "business_purpose": "Minimize losses from operational failures and process breakdowns.",
+    "business_function": "Risk",
+    "activities": ["Identify operational risks", "Assess likelihood and impact", "Map to control framework", "Monitor key risk indicators", "Conduct loss data analysis", "Report to risk management", "Implement mitigating controls"]
+  },
+  {
+    "name": "Credit Loss Provisioning",
+    "description": "Calculation and recording of expected credit loss provisions under IFRS 9 / CECL standards.",
+    "business_purpose": "Accurately estimate and report credit losses on the loan portfolio.",
+    "business_function": "Finance",
+    "activities": ["Collect portfolio data", "Apply loss models", "Calculate ECL/CECL", "Prepare journal entries", "Document methodology", "Present to auditors", "Report in financial statements"]
+  },
+  {
+    "name": "Branch Network Optimization",
+    "description": "Strategic analysis and optimization of branch locations, staffing, and service offerings.",
+    "business_purpose": "Optimize branch network to serve customers efficiently and profitably.",
+    "business_function": "Operations",
+    "activities": ["Analyze branch performance", "Map customer demographics", "Evaluate foot traffic", "Model profitability scenarios", "Recommend closures/openings", "Plan transitions", "Communicate changes"]
+  },
+  {
+    "name": "Customer Complaint Resolution",
+    "description": "Systematic handling of customer complaints from receipt through resolution and feedback.",
+    "business_purpose": "Resolve customer complaints fairly and use feedback to improve services.",
+    "business_function": "Customer Service",
+    "activities": ["Receive complaint", "Log in system", "Acknowledge receipt", "Investigate complaint", "Propose resolution", "Implement fix", "Follow up with customer", "Analyze complaint trends"]
+  },
+  {
+    "name": "Customer Feedback Analysis",
+    "description": "Systematic collection and analysis of customer feedback from multiple channels.",
+    "business_purpose": "Understand customer sentiment and identify improvement opportunities.",
+    "business_function": "Customer Service",
+    "activities": ["Collect feedback from channels", "Categorize feedback", "Analyze sentiment", "Identify trends", "Generate insights report", "Share with product teams", "Track improvement actions"]
+  },
+  {
+    "name": "Wealth Management Advisory",
+    "description": "Personalized financial advisory services for high-net-worth clients including portfolio management.",
+    "business_purpose": "Grow and protect client wealth through expert advisory services.",
+    "business_function": "Wealth Management",
+    "activities": ["Assess client goals", "Review financial position", "Develop investment strategy", "Rebalance portfolios", "Provide tax guidance", "Conduct quarterly reviews", "Report performance"]
+  },
+  {
+    "name": "Trust Administration",
+    "description": "Administration of trust accounts including compliance, distributions, and record keeping.",
+    "business_purpose": "Manage trust assets according to trust terms and legal requirements.",
+    "business_function": "Wealth Management",
+    "activities": ["Accept trust appointment", "Invest trust assets", "Process distributions", "File tax returns", "Maintain trust records", "Communicate with beneficiaries", "Ensure regulatory compliance"]
+  },
+  {
+    "name": "Letter of Credit Processing",
+    "description": "Issuance and management of documentary letters of credit for trade finance.",
+    "business_purpose": "Facilitate international trade by providing payment guarantees.",
+    "business_function": "Corporate Banking",
+    "activities": ["Receive LC application", "Assess credit risk", "Issue LC", "Amend LC as needed", "Receive documents", "Examine documents", "Honor or reject", "Settle with applicant"]
+  },
+  {
+    "name": "Trade Finance - Export Financing",
+    "description": "Financing of export transactions including pre-shipment and post-shipment financing.",
+    "business_purpose": "Provide working capital to exporters and facilitate international trade.",
+    "business_function": "Corporate Banking",
+    "activities": ["Assess exporter creditworthiness", "Review export contract", "Disburse pre-shipment loan", "Monitor shipment", "Apply for export credit insurance", "Collect payment", "Recover loan"]
+  },
+  {
+    "name": "Syndicated Lending",
+    "description": "Arrangement and administration of syndicated loans for large corporate borrowers.",
+    "business_purpose": "Provide large-scale financing by distributing risk across multiple lenders.",
+    "business_function": "Corporate Banking",
+    "activities": ["Receive mandate", "Structure loan", "Syndicate to lenders", "Negotiate terms", "Document agreement", "Manage agent duties", "Process interest payments", "Handle repayments"]
+  },
+  {
+    "name": "Bank Guarantee Processing",
+    "description": "Issuance and management of bank guarantees for commercial and performance obligations.",
+    "business_purpose": "Provide guarantees that support customer commercial obligations.",
+    "business_function": "Corporate Banking",
+    "activities": ["Receive guarantee request", "Assess customer credit", "Determine terms", "Issue guarantee", "Monitor expiry", "Handle claims", "Release or extend guarantees"]
+  },
+  {
+    "name": "Interest Rate Hedging",
+    "description": "Provision of interest rate hedging products such as swaps and caps to corporate clients.",
+    "business_purpose": "Help clients manage interest rate risk exposure.",
+    "business_function": "Corporate Banking",
+    "activities": ["Assess client exposure", "Design hedging strategy", "Price derivative", "Execute trade", "Document ISDA agreement", "Monitor mark-to-market", "Manage collateral"]
+  },
+  {
+    "name": "Deposit Account Opening",
+    "description": "Processing of new deposit account requests including savings, checking, and term deposits.",
+    "business_purpose": "Attract deposits and establish banking relationships.",
+    "business_function": "Retail Banking",
+    "activities": ["Receive account application", "Verify identity", "Collect initial deposit", "Open account in system", "Issue account documents", "Set up statements", "Provide account details"]
+  },
+  {
+    "name": "Fixed Deposit Processing",
+    "description": "Processing of fixed/term deposit placements including rate setting and maturity management.",
+    "business_purpose": "Accept term deposits and manage maturity obligations.",
+    "business_function": "Retail Banking",
+    "activities": ["Receive deposit request", "Offer available rates", "Process placement", "Issue deposit receipt", "Accrue interest", "Notify of maturity", "Process renewal or payout"]
+  },
+  {
+    "name": "Wire Transfer Processing - Outgoing",
+    "description": "Processing and execution of outgoing wire transfer requests from customers.",
+    "business_purpose": "Execute outgoing wire transfers accurately and securely.",
+    "business_function": "Payments",
+    "activities": ["Receive wire request", "Verify authorization", "Screen against sanctions", "Debit customer account", "Format payment message", "Transmit to beneficiary bank", "Confirm completion"]
+  },
+  {
+    "name": "Wire Transfer Processing - Incoming",
+    "description": "Receipt and posting of incoming wire transfers to beneficiary accounts.",
+    "business_purpose": "Credit incoming funds to customer accounts promptly.",
+    "business_function": "Payments",
+    "activities": ["Receive SWIFT message", "Validate payment details", "Screen for sanctions", "Post to beneficiary account", "Handle exceptions", "Notify beneficiary", "Reconcile settlement"]
+  },
+  {
+    "name": "Standing Order Management",
+    "description": "Processing and management of recurring standing orders for automatic payments.",
+    "business_purpose": "Execute recurring customer payment instructions automatically.",
+    "business_function": "Payments",
+    "activities": ["Set up standing order", "Verify payment details", "Schedule recurring execution", "Process on due dates", "Handle failed payments", "Manage cancellations", "Report standing order activity"]
+  },
+  {
+    "name": "Direct Debit Collection",
+    "description": "Collection of funds through direct debit mandates authorized by customers.",
+    "business_purpose": "Collect recurring payments on behalf of merchants and service providers.",
+    "business_function": "Payments",
+    "activities": ["Receive direct debit file", "Validate mandates", "Process collections", "Return invalid debits", "Handle refund requests", "Reconcile collections", "Report to originators"]
+  },
+  {
+    "name": "Mobile Check Deposit",
+    "description": "Processing of check images submitted through mobile banking applications.",
+    "business_purpose": "Enable remote check deposit through mobile technology.",
+    "business_function": "Payments",
+    "activities": ["Receive mobile deposit image", "Validate image quality", "Extract check data", "Screen for duplicates", "Apply funds availability", "Submit for clearing", "Handle return items"]
+  },
+  {
+    "name": "Merchant Services - Onboarding",
+    "description": "Onboarding of new merchant clients for payment processing services.",
+    "business_purpose": "Establish merchant relationships and enable card acceptance.",
+    "business_function": "Payments",
+    "activities": ["Receive merchant application", "Assess business risk", "Set pricing", "Configure terminal/ gateway", "Deploy equipment", "Train merchant", "Activate processing"]
+  },
+  {
+    "name": "Merchant Settlement",
+    "description": "Daily settlement of merchant card transaction batches and fund disbursement.",
+    "business_purpose": "Ensure merchants receive timely payment for card transactions.",
+    "business_function": "Payments",
+    "activities": ["Receive transaction batches", "Validate settlement files", "Calculate net amounts", "Deduct fees", "Disburse funds", "Handle chargebacks", "Reconcile daily activity"]
+  },
+  {
+    "name": "Account Reconciliation",
+    "description": "Reconciliation of general ledger accounts against sub-ledgers, bank statements, and external sources.",
+    "business_purpose": "Ensure accuracy and completeness of financial records.",
+    "business_function": "Finance",
+    "activities": ["Pull GL balances", "Compare to sub-ledgers", "Identify differences", "Investigate discrepancies", "Post adjusting entries", "Document reconciliations", "Escalate unresolved items"]
+  },
+  {
+    "name": "General Ledger Maintenance",
+    "description": "Maintenance of chart of accounts, GL structures, and accounting policies.",
+    "business_purpose": "Ensure accurate and consistent financial recording.",
+    "business_function": "Finance",
+    "activities": ["Review chart of accounts", "Process account requests", "Update accounting policies", "Maintain cost centers", "Reclassify entries", "Archive old accounts", "Document changes"]
+  },
+  {
+    "name": "Budget vs Actual Reporting",
+    "description": "Monthly comparison of actual financial performance against budgeted targets.",
+    "business_purpose": "Track performance against financial plans and identify variances.",
+    "business_function": "Finance",
+    "activities": ["Collect actual results", "Retrieve budget data", "Calculate variances", "Analyze root causes", "Prepare variance reports", "Present to management", "Recommend corrective actions"]
+  },
+  {
+    "name": "Tax Compliance",
+    "description": "Calculation, reporting, and payment of corporate taxes across all jurisdictions.",
+    "business_purpose": "Ensure accurate tax reporting and timely payments.",
+    "business_function": "Finance",
+    "activities": ["Calculate tax liabilities", "Prepare tax returns", "File with authorities", "Process tax payments", "Maintain tax records", "Respond to audits", "Plan tax positions"]
+  },
+  {
+    "name": "HR - Recruitment",
+    "description": "End-to-end recruitment process from job posting through candidate selection and hiring.",
+    "business_purpose": "Attract and hire qualified candidates to fill organizational needs.",
+    "business_function": "HR",
+    "activities": ["Identify hiring need", "Write job description", "Post to job boards", "Screen applications", "Conduct interviews", "Make offer", "Process onboarding"]
+  },
+  {
+    "name": "HR - Employee Separation",
+    "description": "Management of employee departures including offboarding, knowledge transfer, and compliance.",
+    "business_purpose": "Manage employee exits professionally and in compliance with regulations.",
+    "business_function": "HR",
+    "activities": ["Receive resignation/termination", "Conduct exit interview", "Transfer knowledge", "Revoke system access", "Process final pay", "Administer benefits continuation", "Archive personnel records"]
+  },
+  {
+    "name": "Training and Development",
+    "description": "Design and delivery of employee training programs including compliance and skills development.",
+    "business_purpose": "Develop employee skills and ensure compliance training completion.",
+    "business_function": "HR",
+    "activities": ["Identify training needs", "Develop training content", "Schedule sessions", "Deliver training", "Track completion", "Assess effectiveness", "Report compliance metrics"]
+  },
+  {
+    "name": "Benefits Administration",
+    "description": "Administration of employee benefit programs including health, retirement, and wellness.",
+    "business_purpose": "Manage employee benefit programs and ensure proper administration.",
+    "business_function": "HR",
+    "activities": ["Enroll employees", "Process life events", "Manage claims", "Communicate changes", "Coordinate with insurers", "Prepare annual open enrollment", "Report to management"]
+  },
+  {
+    "name": "Incident Management - Physical Security",
+    "description": "Management of physical security incidents at bank premises including theft and unauthorized access.",
+    "business_purpose": "Protect bank assets, employees, and customers from physical threats.",
+    "business_function": "Security",
+    "activities": ["Detect security incident", "Activate security response", "Secure premises", "Investigate incident", "File police report", "Review security footage", "Update security protocols"]
+  },
+  {
+    "name": "Business Continuity Planning",
+    "description": "Development and maintenance of business continuity and disaster recovery plans.",
+    "business_purpose": "Ensure operational resilience during disruptions.",
+    "business_function": "Operations",
+    "activities": ["Conduct BIA assessment", "Identify critical processes", "Develop recovery strategies", "Write continuity plans", "Train employees", "Conduct drills", "Update plans annually"]
+  },
+  {
+    "name": "Corporate Action Processing",
+    "description": "Processing of corporate actions affecting securities holdings including dividends, splits, and mergers.",
+    "business_purpose": "Correctly process corporate events affecting customer and bank investments.",
+    "business_function": "Treasury",
+    "activities": ["Receive corporate action notice", "Identify affected holdings", "Apply event to positions", "Process entitlements", "Reconcile with custodian", "Notify affected parties", "Update records"]
+  },
+  {
+    "name": "Collateral Management",
+    "description": "Monitoring and management of collateral pledged against lending and trading exposures.",
+    "business_purpose": "Ensure adequate collateral coverage for credit and market risk exposures.",
+    "business_function": "Risk",
+    "activities": ["Track collateral positions", "Value pledged assets", "Calculate margin calls", "Request additional collateral", "Process collateral movements", "Release excess collateral", "Report to risk management"]
+  },
+  {
+    "name": "Interbank Settlement",
+    "description": "Settlement of interbank payment obligations through central bank and correspondent systems.",
+    "business_purpose": "Ensure timely settlement of interbank payment flows.",
+    "business_function": "Treasury",
+    "activities": ["Reconcile payment flows", "Calculate net positions", "Submit settlement files", "Fund settlement accounts", "Handle settlement failures", "Reconcile with central bank", "Report settlement activity"]
+  },
+  {
+    "name": "Loan Disbursement",
+    "description": "Processing and disbursement of approved loan funds to borrower accounts.",
+    "business_purpose": "Deliver approved loan funds to borrowers in a timely manner.",
+    "business_function": "Lending",
+    "activities": ["Verify loan approval", "Confirm conditions precedent", "Prepare disbursement request", "Debit loan account", "Credit borrower account", "Send disbursement notice", "Record loan in system"]
+  },
+  {
+    "name": "Loan Repayment Processing",
+    "description": "Processing of loan repayment installments including principal and interest calculations.",
+    "business_purpose": "Accurately process loan repayments and update account balances.",
+    "business_function": "Lending",
+    "activities": ["Receive repayment", "Calculate interest accrual", "Apply to principal", "Update loan balance", "Generate payment receipt", "Handle early repayments", "Report to credit bureaus"]
+  },
+  {
+    "name": "Loan Restructuring",
+    "description": "Modification of loan terms for borrowers experiencing financial difficulty.",
+    "business_purpose": "Support distressed borrowers while protecting bank interests.",
+    "business_function": "Lending",
+    "activities": ["Assess borrower situation", "Propose restructuring options", "Obtain approvals", "Amend loan agreement", "Update system", "Monitor restructured performance", "Classify loan status"]
+  },
+  {
+    "name": "Overdraft Management",
+    "description": "Monitoring and management of customer overdrafts including authorization and fee assessment.",
+    "business_purpose": "Manage overdraft exposure while providing customer convenience.",
+    "business_function": "Retail Banking",
+    "activities": ["Monitor account balances", "Authorize overdraft facility", "Apply overdraft fees", "Communicate with customers", "Manage unarranged overdrafts", "Escalate persistent overdrafts", "Review facility terms"]
+  },
+  {
+    "name": "Interest Accrual and Calculation",
+    "description": "Daily calculation and accrual of interest on deposits, loans, and other financial instruments.",
+    "business_purpose": "Accurately calculate and record interest across all products.",
+    "business_function": "Finance",
+    "activities": ["Run interest calculation engine", "Apply correct rates", "Calculate daily accruals", "Post to accounts", "Generate interest statements", "Handle exceptions", "Report to management"]
+  },
+  {
+    "name": "Customer Address and Contact Updates",
+    "description": "Processing of customer requests to update contact information and addresses.",
+    "business_purpose": "Maintain accurate customer contact information for communications and compliance.",
+    "business_function": "Customer Service",
+    "activities": ["Receive update request", "Verify customer identity", "Validate new information", "Update system records", "Confirm change to customer", "Update KYC records", "Trigger address verification if needed"]
+  },
+  {
+    "name": "Power of Attorney Processing",
+    "description": "Processing and registration of Power of Attorney documents authorizing third-party account access.",
+    "business_purpose": "Legally authorize third parties to act on customer accounts.",
+    "business_function": "Operations",
+    "activities": ["Receive POA document", "Verify document authenticity", "Assess scope of authority", "Register in system", "Provide authorization access", "Monitor POA usage", "Handle POA revocation"]
+  },
+  {
+    "name": "Account Closure Processing",
+    "description": "Processing of customer requests to close bank accounts including balance settlement.",
+    "business_purpose": "Process account closures while meeting regulatory and business requirements.",
+    "business_function": "Retail Banking",
+    "activities": ["Receive closure request", "Verify outstanding obligations", "Cancel pending transactions", "Transfer remaining balance", "Reverse auto-debits", "Close account in system", "Archive records"]
+  },
+  {
+    "name": "Statement Generation and Delivery",
+    "description": "Periodic generation and delivery of account statements to customers across channels.",
+    "business_purpose": "Provide customers with regular account transaction summaries.",
+    "business_function": "Operations",
+    "activities": ["Extract transaction data", "Generate statement format", "Apply branding", "Deliver via mail/email/digital", "Handle statement corrections", "Archive statements", "Respond to statement queries"]
+  },
+  {
+    "name": "Deposit Reconciliation",
+    "description": "Reconciliation of deposit transactions across channels and systems.",
+    "business_purpose": "Ensure all deposit transactions are accurately recorded and settled.",
+    "business_function": "Operations",
+    "activities": ["Collect deposit feeds", "Match to GL entries", "Identify unmatched items", "Investigate discrepancies", "Post adjustments", "Report daily positions", "Escalate unresolved items"]
+  },
+  {
+    "name": "Customer Outreach - Cross-Sell",
+    "description": "Systematic identification and outreach to customers for cross-selling additional products.",
+    "business_purpose": "Grow customer wallet share through targeted product recommendations.",
+    "business_function": "Retail Banking",
+    "activities": ["Analyze customer profile", "Identify product opportunities", "Prepare outreach list", "Execute campaigns", "Track response rates", "Convert qualified leads", "Measure campaign ROI"]
+  },
+  {
+    "name": "Pricing - Loan Rate Setting",
+    "description": "Determination of loan pricing based on risk assessment, market conditions, and policy.",
+    "business_purpose": "Set competitive loan rates that reflect risk and generate adequate returns.",
+    "business_function": "Lending",
+    "activities": ["Assess borrower risk", "Review market rates", "Apply pricing model", "Check policy limits", "Determine final rate", "Communicate to borrower", "Document pricing rationale"]
+  },
+  {
+    "name": "Deposit Rate Management",
+    "description": "Setting and adjusting deposit interest rates based on market conditions and funding needs.",
+    "business_purpose": "Offer competitive deposit rates while managing funding costs.",
+    "business_function": "Retail Banking",
+    "activities": ["Monitor market rates", "Analyze funding needs", "Benchmark competitor rates", "Propose rate changes", "Obtain approvals", "Update systems", "Communicate to customers"]
+  },
+  {
+    "name": "Branch Cash Forecasting",
+    "description": "Forecasting daily cash needs for branches to optimize cash holdings and replenishment.",
+    "business_purpose": "Ensure branches have adequate cash while minimizing idle cash.",
+    "business_function": "Operations",
+    "activities": ["Analyze historical patterns", "Consider seasonal factors", "Generate daily forecast", "Coordinate cash deliveries", "Monitor actual vs forecast", "Adjust replenishment orders", "Report forecast accuracy"]
+  },
+  {
+    "name": "ATM Cash Replenishment",
+    "description": "Monitoring ATM cash levels and scheduling replenishment to prevent outages.",
+    "business_purpose": "Maintain ATM cash availability for customer convenience.",
+    "business_function": "Operations",
+    "activities": ["Monitor ATM cash levels", "Calculate replenishment needs", "Schedule armored transport", "Prepare cash cassettes", "Verify replenishment", "Update ATM status", "Monitor post-replenishment"]
+  },
+  {
+    "name": "Loan Portfolio Monitoring",
+    "description": "Ongoing monitoring of loan portfolio health including watchlist and early warning indicators.",
+    "business_purpose": "Detect early signs of credit deterioration across the loan book.",
+    "business_function": "Risk",
+    "activities": ["Monitor payment patterns", "Review financial covenants", "Track watchlist loans", "Analyze industry trends", "Generate early warning reports", "Escalate concerns", "Recommend remedial actions"]
+  },
+  {
+    "name": "Stress Testing",
+    "description": "Regular stress testing of bank portfolios and capital under adverse economic scenarios.",
+    "business_purpose": "Assess bank resilience under severe but plausible scenarios.",
+    "business_function": "Risk",
+    "activities": ["Define stress scenarios", "Extract portfolio data", "Apply scenario models", "Calculate impact on capital", "Prepare stress test results", "Present to board", "Submit to regulators"]
+  },
+  {
+    "name": "Model Validation",
+    "description": "Independent validation of internal risk models including credit, market, and operational models.",
+    "business_purpose": "Ensure models produce accurate and reliable results.",
+    "business_function": "Risk",
+    "activities": ["Select models for validation", "Review model methodology", "Test model performance", "Benchmark against alternatives", "Document findings", "Issue validation report", "Track remediation"]
+  },
+  {
+    "name": "Vendor Payment Processing",
+    "description": "Processing of outgoing vendor payments across multiple payment methods.",
+    "business_purpose": "Pay vendors accurately and on schedule.",
+    "business_function": "Finance",
+    "activities": ["Receive payment request", "Verify approval", "Select payment method", "Process payment", "Record accounting entries", "Send remittance advice", "Reconcile vendor statements"]
+  },
+  {
+    "name": "Payroll Tax Filing",
+    "description": "Preparation and filing of payroll tax returns and employee tax certificates.",
+    "business_purpose": "Ensure accurate and timely payroll tax compliance.",
+    "business_function": "HR",
+    "activities": ["Calculate payroll tax liabilities", "Prepare tax returns", "File with authorities", "Issue employee certificates", "Respond to tax notices", "Maintain payroll records", "Support audits"]
+  },
+  {
+    "name": "Employee Expense Reimbursement",
+    "description": "Processing of employee expense claims including review, approval, and payment.",
+    "business_purpose": "Reimburse employees for legitimate business expenses efficiently.",
+    "business_function": "Finance",
+    "activities": ["Submit expense report", "Attach receipts", "Manager approval", "Verify against policy", "Process payment", "Record in GL", "Analyze spending patterns"]
+  },
+  {
+    "name": "Data Privacy Compliance",
+    "description": "Ensuring compliance with data protection regulations including GDPR and local privacy laws.",
+    "business_purpose": "Protect customer data and comply with privacy regulations.",
+    "business_function": "Compliance",
+    "activities": ["Maintain data inventory", "Process data access requests", "Handle deletion requests", "Conduct privacy impact assessments", "Manage consent records", "Respond to breaches", "Train staff on privacy"]
+  },
+  {
+    "name": "Records Management",
+    "description": "Systematic management of business records including retention, archiving, and disposal.",
+    "business_purpose": "Maintain records in compliance with regulatory retention requirements.",
+    "business_function": "Compliance",
+    "activities": ["Classify records", "Apply retention policies", "Archive inactive records", "Search for records", "Dispose of expired records", "Respond to legal holds", "Audit record management"]
+  },
+  {
+    "name": "Lease Accounting",
+    "description": "Accounting for operating and finance leases under IFRS 16 / ASC 842 standards.",
+    "business_purpose": "Accurately account for lease obligations in financial statements.",
+    "business_function": "Finance",
+    "activities": ["Identify lease agreements", "Calculate right-of-use assets", "Record lease liabilities", "Process lease modifications", "Reconcile lease schedules", "Prepare disclosures", "Respond to audit queries"]
+  },
+  {
+    "name": "Capital Adequacy Reporting",
+    "description": "Calculation and reporting of capital adequacy ratios under Basel III requirements.",
+    "business_purpose": "Ensure the bank maintains required capital levels.",
+    "business_function": "Risk",
+    "activities": ["Calculate risk-weighted assets", "Compute capital ratios", "Apply regulatory adjustments", "Prepare capital reports", "Present to ALCO", "Submit to regulators", "Plan capital actions"]
+  },
+  {
+    "name": "Payment Card Fraud Monitoring",
+    "description": "Real-time monitoring of payment card transactions for fraudulent activity.",
+    "business_purpose": "Detect and prevent card fraud while minimizing legitimate transaction declines.",
+    "business_function": "Fraud",
+    "activities": ["Monitor card transactions", "Apply fraud rules", "Score transactions in real-time", "Block suspicious transactions", "Alert cardholders", "Investigate fraud alerts", "Issue replacement cards"]
+  },
+  {
+    "name": "Identity Verification - Digital",
+    "description": "Digital identity verification for online and mobile banking onboarding.",
+    "business_purpose": "Verify customer identity remotely for digital channels.",
+    "business_function": "KYC",
+    "activities": ["Collect identity documents", "Perform biometric checks", "Run document verification", "Cross-reference databases", "Score identity confidence", "Approve or escalate", "Store verification evidence"]
+  },
+  {
+    "name": "Customer Due Diligence",
+    "description": "Enhanced due diligence procedures for higher-risk customer relationships.",
+    "business_purpose": "Mitigate money laundering and terrorism financing risks.",
+    "business_function": "AML",
+    "activities": ["Identify high-risk customers", "Gather enhanced information", "Verify source of funds", "Assess business relationships", "Document findings", "Obtain management approval", "Schedule periodic reviews"]
+  },
+  {
+    "name": "Regulatory Examination Management",
+    "description": "Management of regulatory examinations including preparation, response, and remediation.",
+    "business_purpose": "Successfully navigate regulatory examinations and address findings.",
+    "business_function": "Compliance",
+    "activities": ["Receive examination notice", "Prepare documentation", "Coordinate with examiners", "Respond to requests", "Document findings", "Develop remediation plans", "Track issue resolution"]
+  },
+  {
+    "name": "Consumer Lending - Auto Loan Processing",
+    "description": "Processing of automobile loan applications from application through funding.",
+    "business_purpose": "Finance vehicle purchases for retail customers.",
+    "business_function": "Lending",
+    "activities": ["Receive auto loan application", "Verify income and employment", "Check vehicle details", "Run credit check", "Determine loan terms", "Prepare loan documents", "Fund dealer payment"]
+  },
+  {
+    "name": "SBA Loan Processing",
+    "description": "Processing of Small Business Administration guaranteed loans for small business clients.",
+    "business_purpose": "Provide SBA-guaranteed financing to small businesses.",
+    "business_function": "Lending",
+    "activities": ["Receive SBA loan request", "Verify eligibility", "Prepare SBA forms", "Submit to SBA for guarantee", "Close loan", "Disburse funds", "Service loan through maturity"]
+  },
+  {
+    "name": "Letter of Credit Amendment",
+    "description": "Processing of amendments to existing letters of credit.",
+    "business_purpose": "Modify LC terms to accommodate changing trade requirements.",
+    "business_function": "Corporate Banking",
+    "activities": ["Receive amendment request", "Verify applicant authorization", "Assess amendment impact", "Issue amendment", "Notify beneficiary", "Confirm acceptance", "Update LC records"]
+  },
+  {
+    "name": "Surety Bond Processing",
+    "description": "Issuance and administration of surety bonds for construction and commercial obligations.",
+    "business_purpose": "Provide surety bond guarantees for customer obligations.",
+    "business_function": "Corporate Banking",
+    "activities": ["Receive bond application", "Assess principal credit", "Underwrite bond risk", "Issue bond", "Monitor bond obligations", "Handle claims", "Release upon completion"]
+  },
+  {
+    "name": "International Trade Documentation",
+    "description": "Review and processing of trade documents for international shipments.",
+    "business_purpose": "Ensure trade document compliance for smooth customs clearance.",
+    "business_function": "Corporate Banking",
+    "activities": ["Receive trade documents", "Verify against LC terms", "Check document conformity", "Resolve discrepancies", "Release documents to importer", "Retain copies", "Report to trade finance system"]
+  }
+]
