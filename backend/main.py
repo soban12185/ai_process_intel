@@ -47,3 +47,13 @@ def startup():
 @app.get("/health")
 def health_check():
     return {"status": "healthy", "app": "NovaBank AI Process Intelligence Engine"}
+
+
+@app.get("/debug/config")
+def debug_config():
+    key = settings.GROQ_API_KEY
+    return {
+        "key_length": len(key) if key else 0,
+        "key_prefix": key[:10] + "..." if key and len(key) > 10 else "NOT SET",
+        "model": settings.GROQ_MODEL,
+    }
