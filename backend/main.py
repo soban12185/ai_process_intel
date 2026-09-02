@@ -1,3 +1,13 @@
+import os
+from pathlib import Path
+
+# Load .env BEFORE importing config (so Settings picks up the values)
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+env_file = PROJECT_ROOT / ".env"
+if env_file.exists():
+    from dotenv import load_dotenv
+    load_dotenv(env_file, override=True)
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.database import init_db
