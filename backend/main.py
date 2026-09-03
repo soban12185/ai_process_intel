@@ -51,26 +51,26 @@ def health_check():
 
 @app.get("/debug/config")
 def debug_config():
-    key = settings.GEMINI_API_KEY
+    key = settings.GROQ_API_KEY
     return {
         "key_length": len(key) if key else 0,
         "key_prefix": key[:10] + "..." if key and len(key) > 10 else "NOT SET",
-        "model": settings.GEMINI_MODEL,
+        "model": settings.GROQ_MODEL,
     }
 
 
-@app.get("/debug/test-gemini")
-def debug_test_gemini():
+@app.get("/debug/test-groq")
+def debug_test_groq():
     import httpx
-    api_key = settings.GEMINI_API_KEY
+    api_key = settings.GROQ_API_KEY
     if not api_key:
         return {"error": "No API key set"}
     try:
         with httpx.Client(timeout=30.0) as client:
             resp = client.post(
-                "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
+                "https://api.groq.com/openai/v1/chat/completions",
                 headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-                json={"model": settings.GEMINI_MODEL, "messages": [{"role": "user", "content": "Say hello"}], "max_tokens": 10},
+                json={"model": settings.GROQ_MODEL, "messages": [{"role": "user", "content": "Say hello"}], "max_tokens": 10},
             )
             return {"status": resp.status_code, "body": resp.text[:500]}
     except Exception as e:

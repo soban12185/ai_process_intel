@@ -68,7 +68,7 @@ def _fallback_analysis() -> dict:
         "technologies": [],
         "business_benefits": [],
         "risks": [],
-        "reasoning": "Analysis could not be completed. The AI service (Gemini) is not configured or unavailable. Please set GEMINI_API_KEY in .env and restart.",
+        "reasoning": "Analysis could not be completed. The AI service (Groq) is not configured or unavailable. Please set GROQ_API_KEY in .env and restart.",
         "confidence": 0.0,
         "scoring_dimensions": {
             "automation_potential": 5.0,
