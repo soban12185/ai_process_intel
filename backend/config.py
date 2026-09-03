@@ -8,7 +8,7 @@ DB_PATH = PROJECT_ROOT / "data" / "modus_ai.db"
 
 class Settings(BaseSettings):
     GROQ_API_KEY: str = ""
-    GROQ_MODEL: str = "llama-3.1-8b-instant"
+    GROQ_MODEL: str = "llama3-8b-8192"
     DATABASE_URL: str = f"sqlite:///{DB_PATH}"
     RESEARCH_ENABLED: bool = True
     HOST: str = "0.0.0.0"
