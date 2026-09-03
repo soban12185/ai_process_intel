@@ -168,4 +168,4 @@ class AnalysisService:
 
 def settings_model():
     from backend.config import settings
-    return settings.GROQ_MODEL
+    return settings.GEMINI_MODEL

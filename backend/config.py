@@ -7,8 +7,8 @@ DB_PATH = PROJECT_ROOT / "data" / "modus_ai.db"
 
 
 class Settings(BaseSettings):
-    GROQ_API_KEY: str = ""
-    GROQ_MODEL: str = "openai/gpt-oss-20b"
+    GEMINI_API_KEY: str = ""
+    GEMINI_MODEL: str = "gemini-2.0-flash-lite"
     DATABASE_URL: str = f"sqlite:///{DB_PATH}"
     RESEARCH_ENABLED: bool = True
     HOST: str = "0.0.0.0"
