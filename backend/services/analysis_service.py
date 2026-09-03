@@ -1,4 +1,3 @@
-import asyncio
 import json
 import logging
 from datetime import datetime
@@ -50,14 +49,7 @@ class AnalysisService:
         self.db.add(run)
         self.db.flush()
 
-        try:
-            raw = asyncio.get_event_loop().run_until_complete(
-                call_llm(SYSTEM_PROMPT, user_prompt)
-            )
-        except RuntimeError:
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
-            raw = loop.run_until_complete(call_llm(SYSTEM_PROMPT, user_prompt))
+        raw = call_llm(SYSTEM_PROMPT, user_prompt)
 
         parsed = parse_analysis_response(raw)
 

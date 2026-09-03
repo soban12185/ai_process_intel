@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 
-async def call_llm(system_prompt: str, user_prompt: str) -> dict:
+def call_llm(system_prompt: str, user_prompt: str) -> dict:
     api_key = settings.GROQ_API_KEY
     if not api_key:
         logger.warning("GROQ_API_KEY not set. Using fallback analysis.")
@@ -31,8 +31,9 @@ async def call_llm(system_prompt: str, user_prompt: str) -> dict:
     }
 
     try:
-        async with httpx.AsyncClient(timeout=60.0) as client:
-            response = await client.post(GROQ_API_URL, json=payload, headers=headers)
+        with httpx.Client(timeout=60.0) as client:
+            response = client.post(GROQ_API_URL, json=payload, headers=headers)
+            logger.info(f"Groq API response status: {response.status_code}")
             response.raise_for_status()
             data = response.json()
             content = data["choices"][0]["message"]["content"]
